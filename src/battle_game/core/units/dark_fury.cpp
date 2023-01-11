@@ -17,6 +17,7 @@ DarkFury::DarkFury(GameCore *game_core, uint32_t id, uint32_t player_id)
   temp.type = E;
   temp.function = SKILL_ADD_FUNCTION(DarkFury::SwitchMode);
   skills_.push_back(temp);
+  unit_type_ = dark_fury;
 }
 
 void DarkFury::Render() {

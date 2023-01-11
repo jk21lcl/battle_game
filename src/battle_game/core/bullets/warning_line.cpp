@@ -13,6 +13,7 @@ WarningLine::WarningLine(GameCore *core,
                          glm::vec2 velocity)
     : Bullet(core, id, unit_id, player_id, position, rotation, damage_scale),
       velocity_(velocity) {
+        bullet_type_ = warning_line;
 }
 
 void WarningLine::Render() {

@@ -7,6 +7,7 @@
 namespace battle_game::unit {
 RageTank::RageTank(GameCore *game_core, uint32_t id, uint32_t player_id)
     : Tank(game_core, id, player_id) {
+      unit_type_ = rage_tank;
 }
 
 void RageTank::Render() {

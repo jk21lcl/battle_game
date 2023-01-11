@@ -116,6 +116,7 @@ void SquareTank::TankMove(float move_speed) {
     if (!game_core_->IsBlockedByObstacles(new_position))
       game_core_->PushEventMoveUnit(id_, new_position);
   }
+  unit_type_ = square_tank;
 }
 
 void SquareTank::TurretRotate() {

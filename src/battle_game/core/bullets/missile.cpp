@@ -29,6 +29,7 @@ Missile::Missile(GameCore *core,
          {{0.0f, 0.0f}, {0.0f, 0.0f}, {1.0f, 1.0f, 1.0f, 1.0f}}},
         {0, 1, 2});
   }
+  bullet_type_ = missile;
 }
 
 float Missile::GetMaxVelocity() {

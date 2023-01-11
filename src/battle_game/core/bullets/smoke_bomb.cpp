@@ -22,6 +22,7 @@ SmokeBomb::SmokeBomb(GameCore *core,
       duration_(duration * kTickPerSecond + 0.5f),
       damage_duration_(damage_duration * kTickPerSecond + 0.5f),
       current_time_(0u) {
+        bullet_type_ = smoke_bomb;
 }
 
 void SmokeBomb::Render() {

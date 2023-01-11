@@ -14,6 +14,7 @@ SweatySoybean::SweatySoybean(GameCore *core,
                              glm::vec2 velocity)
     : Bullet(core, id, unit_id, player_id, position, rotation, damage_scale),
       velocity_(velocity) {
+        bullet_type_ = sweaty_soybean;
 }
 
 void SweatySoybean::Render() {

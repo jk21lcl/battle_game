@@ -8,6 +8,7 @@ ReboundingBlock::ReboundingBlock(GameCore *game_core,
                                  float rotation,
                                  glm::vec2 scale)
     : Obstacle(game_core, id, position, rotation), scale_(scale) {
+      obstacle_type_ = rebounding_block;
 }
 
 bool ReboundingBlock::IsBlocked(glm::vec2 p) const {

@@ -8,7 +8,9 @@ enum ObstacleType // use lowercase to avoid class name
   untracked_obstacle,
   block,
   // add your obstacle here:
-  river
+  rebounding_block,
+  river,
+  safety_declaration
 };
 
 class Obstacle : public Object {

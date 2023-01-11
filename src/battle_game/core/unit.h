@@ -7,9 +7,23 @@ namespace battle_game {
 enum UnitType // use lowercase to avoid class name
 {
   untracked_unit,
-  tiny_tank
+  tiny_tank,
   // add your unit here:
-
+  dark_fury,
+  double_scatter_tank,
+  inferno_tank,
+  mine_sample_tank,
+  missile_tank,
+  rage_tank,
+  rebounding_sample_tank,
+  round_UFO,
+  smoke_bomb_tank,
+  square_tank,
+  tank_xxy,
+  three_body_man,
+  triple_shot_tank,
+  whaooooo_tank,
+  zibeng_dog
 };
 
 class Bullet;

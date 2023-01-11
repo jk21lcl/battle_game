@@ -21,6 +21,7 @@ ReboundingSampleTank::ReboundingSampleTank(GameCore *game_core,
   temp.bullet_total_number = 1;
   temp.type = B;
   skills_.push_back(temp);
+  unit_type_ = rebounding_sample_tank;
 }
 
 void ReboundingSampleTank::Render() {

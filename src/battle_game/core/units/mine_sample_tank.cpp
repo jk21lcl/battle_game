@@ -10,6 +10,7 @@ MineSampleTank::MineSampleTank(GameCore *game_core,
                                uint32_t id,
                                uint32_t player_id)
     : Tank(game_core, id, player_id) {
+      unit_type_ = mine_sample_tank;
 }
 
 void MineSampleTank::Render() {

@@ -33,6 +33,7 @@ Rocket::Rocket(GameCore *core,
       player_locked_ = unit.first;
     }
   }
+  bullet_type_ = rocket;
 }
 
 void Rocket::Render() {

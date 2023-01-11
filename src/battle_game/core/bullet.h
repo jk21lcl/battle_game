@@ -7,9 +7,16 @@ namespace battle_game {
 enum BulletType // use lowercase to avoid class name
 {
   untracked_bullet,     
-  cannon_ball
+  cannon_ball,
   // add your bullet here:
-  
+  mine,
+  missile,
+  rebounding_ball,
+  rocket,
+  smoke_bomb,
+  sweaty_soybean,
+  warning_line,
+  water_drop
 };
 
 class GameCore;

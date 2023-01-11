@@ -30,6 +30,7 @@ InfernoTank::InfernoTank(GameCore *game_core, uint32_t id, uint32_t player_id)
   temp.bullet_total_number = 1;
   temp.type = B;
   skills_.push_back(temp);
+  unit_type_ = inferno_tank;
 }
 
 void InfernoTank::Render() {

@@ -15,6 +15,7 @@ Mine::Mine(GameCore *core,
     : Bullet(core, id, unit_id, player_id, position, rotation, damage_scale),
       velocity_(velocity),
       ready_count_down_(kTickPerSecond * 2) {
+        bullet_type_ = mine;
 }
 
 void Mine::Render() {

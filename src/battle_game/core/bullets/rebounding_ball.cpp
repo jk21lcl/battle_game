@@ -16,6 +16,7 @@ ReboundingBall::ReboundingBall(GameCore *core,
     : Bullet(core, id, unit_id, player_id, position, rotation, damage_scale),
       velocity_(velocity),
       rebounding_times_left_(rebounding_times) {
+        bullet_type_ = rebounding_ball;
 }
 
 void ReboundingBall::Render() {

@@ -32,6 +32,7 @@ SafetyDeclaration::SafetyDeclaration(GameCore *game_core,
     }
   }
   valid_time_ = 3 * kTickPerSecond;
+  obstacle_type_ = safety_declaration;
 }
 
 bool SafetyDeclaration::IsBlocked(glm::vec2 p) const {

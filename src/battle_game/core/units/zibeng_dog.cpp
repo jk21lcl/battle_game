@@ -63,6 +63,7 @@ ZibengDog::ZibengDog(GameCore *game_core, uint32_t id, uint32_t player_id)
           mgr->RegisterModel(muzzle_vertices, muzzle_indices);
     }
   }
+  unit_type_ = zibeng_dog;
 }
 
 void ZibengDog::Render() {

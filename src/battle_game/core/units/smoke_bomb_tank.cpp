@@ -13,6 +13,7 @@ SmokeBombTank::SmokeBombTank(GameCore *game_core,
       aimed_(false),
       max_distance_(10.0f),
       radius_(4.0f) {
+        unit_type_ = smoke_bomb_tank;
 }
 
 void SmokeBombTank::Update() {

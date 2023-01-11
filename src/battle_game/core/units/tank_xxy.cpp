@@ -7,6 +7,7 @@ namespace battle_game::unit {
 
 TankXxy::TankXxy(GameCore *game_core, uint32_t id, uint32_t player_id)
     : Tank(game_core, id, player_id) {
+      unit_type_ = tank_xxy;
 }
 
 const char *TankXxy::UnitName() const {
