@@ -98,7 +98,7 @@ void Rocket::Update() {
       continue;
     }
     if (unit.second->IsHit(position_)) {
-      game_core_->PushEventDealDamage(unit.first, id_,
+      game_core_->PushEventDealDamage(unit.first, unit_id_,
                                       damage_scale_ * harmful_);
       should_die = true;
     }

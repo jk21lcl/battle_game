@@ -38,7 +38,7 @@ void WaterDrop::Update() {
     }
     if (unit.second->IsHit(position_)) {
       game_core_->PushEventDealDamage(
-          unit.first, id_, game_core_->GetUnit(unit.first)->GetMaxHealth());
+          unit.first, unit_id_, game_core_->GetUnit(unit.first)->GetMaxHealth());
       should_die = true;
     }
   }

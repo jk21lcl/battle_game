@@ -55,9 +55,9 @@ void SmokeBomb::Update() {
       for (auto &unit : units) {
         if (glm::length(unit.second->GetPosition() - position_) <= radius_) {
           if (unit.first == unit_id_) {
-            game_core_->PushEventDealDamage(unit.first, id_, damage * 0.5f);
+            game_core_->PushEventDealDamage(unit.first, unit_id_, damage * 0.5f);
           } else {
-            game_core_->PushEventDealDamage(unit.first, id_, damage);
+            game_core_->PushEventDealDamage(unit.first, unit_id_, damage);
           }
         }
       }

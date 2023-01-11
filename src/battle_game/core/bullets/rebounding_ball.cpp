@@ -58,7 +58,7 @@ void ReboundingBall::Update() {
       continue;
     }
     if (unit.second->IsHit(position_)) {
-      game_core_->PushEventDealDamage(unit.first, id_, damage_scale_ * 10.0f);
+      game_core_->PushEventDealDamage(unit.first, unit_id_, damage_scale_ * 10.0f);
       should_die = true;
     }
   }

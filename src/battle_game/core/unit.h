@@ -11,6 +11,7 @@ enum UnitType // use lowercase to avoid class name
   // add your unit here:
   dark_fury,
   double_scatter_tank,
+  heal_tank,
   inferno_tank,
   mine_sample_tank,
   missile_tank,
@@ -58,6 +59,8 @@ class Unit : public Object {
     return health_;
   }
 
+  virtual void AddAttackBuff() {}
+  
   /*
    * The value of new_health will be clamped to [0, 1]
    * */
