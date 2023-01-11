@@ -142,10 +142,18 @@ bool GameCore::IsBlockedByObstacles (glm::vec2 p,
   }
   for (auto &obstacle : obstacles_) {
     if (obstacle.second->IsBlocked(p)) {
-      return true;
+      return HitEffect(src_type, src_id, &*(obstacle.second));
     }
   }
   return false;
+}
+
+bool GameCore::HitEffect(ObjectType src_type, uint32_t src_id, 
+                Obstacle* dst) const
+{
+  if(dst->GetObstacleType() == river && src_type == bullet_)
+    return false;
+  return true;
 }
 
 Obstacle *GameCore::GetBlockedObstacle(glm::vec2 p) const {

@@ -122,6 +122,8 @@ class GameCore {
   [[nodiscard]] bool IsBlockedByObstacles(glm::vec2 p, 
                 ObjectType src_type, uint32_t src_id) const;
   [[nodiscard]] Obstacle *GetBlockedObstacle(glm::vec2 p) const;
+  [[nodiscard]] bool HitEffect(ObjectType src_type, uint32_t src_id, 
+                Obstacle* dst) const;
 
   void PushEventMoveUnit(uint32_t unit_id, glm::vec2 new_position);
   void PushEventRotateUnit(uint32_t unit_id, float new_rotation);
