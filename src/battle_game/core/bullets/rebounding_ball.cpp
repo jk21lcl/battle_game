@@ -34,7 +34,7 @@ void ReboundingBall::Update() {
   bool should_die = false;
   glm::vec2 last_position = position_;
   position_ += velocity_ * kSecondPerTick;
-  if (game_core_->IsBlockedByObstacles(position_)) {
+  if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
     should_die = true;
     auto blocked_obstacle = game_core_->GetBlockedObstacle(position_);
     if (blocked_obstacle != nullptr && rebounding_times_left_) {

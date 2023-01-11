@@ -27,7 +27,7 @@ void SweatySoybean::Render() {
 void SweatySoybean::Update() {
   position_ += velocity_ * kSecondPerTick;
   bool should_die = false;
-  if (game_core_->IsBlockedByObstacles(position_)) {
+  if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
     should_die = true;
   }
 

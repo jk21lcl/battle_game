@@ -119,7 +119,8 @@ class GameCore {
   [[nodiscard]] glm::vec4 GetPlayerColor(uint32_t player_id) const;
 
   [[nodiscard]] bool IsOutOfRange(glm::vec2 p) const;
-  [[nodiscard]] bool IsBlockedByObstacles(glm::vec2 p) const;
+  [[nodiscard]] bool IsBlockedByObstacles(glm::vec2 p, 
+                ObjectType src_type, uint32_t src_id) const;
   [[nodiscard]] Obstacle *GetBlockedObstacle(glm::vec2 p) const;
 
   void PushEventMoveUnit(uint32_t unit_id, glm::vec2 new_position);

@@ -27,7 +27,7 @@ void CannonBall::Render() {
 void CannonBall::Update() {
   position_ += velocity_ * kSecondPerTick;
   bool should_die = false;
-  if (game_core_->IsBlockedByObstacles(position_)) {
+  if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
     if(!(game_core_->IsOutOfRange(position_)) && 
     game_core_->GetBlockedObstacle(position_)->GetObstacleType() == river)
       should_die = false;

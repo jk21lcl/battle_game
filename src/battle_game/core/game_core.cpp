@@ -135,7 +135,8 @@ void GameCore::ProcessEventQueue() {
   }
 }
 
-bool GameCore::IsBlockedByObstacles(glm::vec2 p) const {
+bool GameCore::IsBlockedByObstacles (glm::vec2 p, 
+          ObjectType src_type, uint32_t src_id) const {
   if (IsOutOfRange(p)) {
     return true;
   }

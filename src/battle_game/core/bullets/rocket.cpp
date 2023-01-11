@@ -89,7 +89,7 @@ void Rocket::Update() {
   }
   rotation_ = angle;
   bool should_die = false;
-  if (game_core_->IsBlockedByObstacles(position_)) {
+  if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
     should_die = true;
   }
 
