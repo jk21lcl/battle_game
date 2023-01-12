@@ -14,6 +14,7 @@ CritTank::CritTank(GameCore *game_core, uint32_t id, uint32_t player_id)
   temp.time_total = 600;
   temp.type = E;
   skills_.push_back(temp);
+  unit_type_ = crit_tank;
 }
 
 void CritTank::Render() {

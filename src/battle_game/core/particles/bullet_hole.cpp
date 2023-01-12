@@ -9,6 +9,7 @@ BulletHole::BulletHole(GameCore *game_core,
                        float rotation,
                        uint32_t duration)
     : Particle(game_core, id, position, rotation), duration_(duration) {
+      particle_type_ = bullet_hole;
 }
 
 void BulletHole::Render() {

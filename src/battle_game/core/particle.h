@@ -5,9 +5,9 @@ namespace battle_game {
 enum ParticleType // use lowercase to avoid class name
 {
     untracked_particle,
-    smoke
+    smoke,
     // add your particle here:
-    
+    bullet_hole
 };
 
 class Particle : public Object {

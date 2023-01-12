@@ -9,6 +9,7 @@ enum UnitType // use lowercase to avoid class name
   untracked_unit,
   tiny_tank,
   // add your unit here:
+  crit_tank,
   dark_fury,
   double_scatter_tank,
   heal_tank,
@@ -21,6 +22,7 @@ enum UnitType // use lowercase to avoid class name
   smoke_bomb_tank,
   square_tank,
   tank_xxy,
+  tankK,
   three_body_man,
   triple_shot_tank,
   whaooooo_tank,

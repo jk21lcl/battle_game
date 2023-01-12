@@ -18,6 +18,7 @@ CritBullet::CritBullet(GameCore *core,
       velocity_(velocity),
       crit_chance_(crit_chance),
       crit_damage_(crit_damage) {
+        bullet_type_ = crit_bullet;
 }
 
 void CritBullet::Render() {
@@ -30,7 +31,7 @@ void CritBullet::Render() {
 void CritBullet::Update() {
   position_ += velocity_ * kSecondPerTick;
   bool should_die = false;
-  if (game_core_->IsBlockedByObstacles(position_)) {
+  if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
     should_die = true;
   }
 
@@ -42,10 +43,10 @@ void CritBullet::Update() {
     if (unit.second->IsHit(position_)) {
       float check_if_crit_hit = game_core_->RandomFloat();
       if (check_if_crit_hit >= crit_chance_) {
-        game_core_->PushEventDealDamage(unit.first, id_, damage_scale_ * 10.0f);
+        game_core_->PushEventDealDamage(unit.first, unit_id_, damage_scale_ * 10.0f);
       } else {
         game_core_->PushEventDealDamage(
-            unit.first, id_, damage_scale_ * 10.0f * (1.0f + crit_damage_));
+            unit.first, unit_id_, damage_scale_ * 10.0f * (1.0f + crit_damage_));
         game_core_->PushEventGenerateParticle<particle::BulletHole>(
             position_, rotation_, kTickPerSecond);
       }
