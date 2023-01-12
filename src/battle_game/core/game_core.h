@@ -120,10 +120,10 @@ class GameCore {
 
   [[nodiscard]] bool IsOutOfRange(glm::vec2 p) const;
   [[nodiscard]] bool IsBlockedByObstacles(glm::vec2 p, 
-                ObjectType src_type, uint32_t src_id) const;
+                ObjectType src_type, uint32_t src_id);
   [[nodiscard]] Obstacle *GetBlockedObstacle(glm::vec2 p) const;
   [[nodiscard]] bool HitEffect(ObjectType src_type, uint32_t src_id, 
-                Obstacle* dst) const;
+                Obstacle* dst);
 
   void PushEventMoveUnit(uint32_t unit_id, glm::vec2 new_position);
   void PushEventRotateUnit(uint32_t unit_id, float new_rotation);

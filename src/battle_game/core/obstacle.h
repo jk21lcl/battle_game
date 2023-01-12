@@ -8,6 +8,7 @@ enum ObstacleType // use lowercase to avoid class name
   untracked_obstacle,
   block,
   // add your obstacle here:
+  bramble,
   rebounding_block,
   river,
   safety_declaration

@@ -136,7 +136,7 @@ void GameCore::ProcessEventQueue() {
 }
 
 bool GameCore::IsBlockedByObstacles (glm::vec2 p, 
-          ObjectType src_type, uint32_t src_id) const {
+          ObjectType src_type, uint32_t src_id) {
   if (IsOutOfRange(p)) {
     return true;
   }
@@ -149,10 +149,16 @@ bool GameCore::IsBlockedByObstacles (glm::vec2 p,
 }
 
 bool GameCore::HitEffect(ObjectType src_type, uint32_t src_id, 
-                Obstacle* dst) const
+                Obstacle* dst)
 {
   if(dst->GetObstacleType() == river && src_type == bullet_)
     return false;
+  if(dst->GetObstacleType() == bramble)
+  {
+    if(src_type == unit_)
+      PushEventDealDamage(src_id, 0, 0.08f);
+    return false;
+  }
   return true;
 }
 
@@ -289,6 +295,7 @@ int GameCore::RandomInt(int low_bound, int high_bound) {
 void GameCore::SetScene() {
   AddObstacle<obstacle::Block>(glm::vec2{-3.0f, 4.0f});
   AddObstacle<obstacle::River>(glm::vec2{3.0f, 0.0f});
+  AddObstacle<obstacle::Bramble>(glm::vec2{-3.0f, -4.0f});
   AddObstacle<obstacle::ReboundingBlock>(glm::vec2{-10.0f, -10.0f},
                                          0.78539816339744830961566084581988f);
   AddObstacle<obstacle::ReboundingBlock>(glm::vec2{10.0f, -10.0f},
