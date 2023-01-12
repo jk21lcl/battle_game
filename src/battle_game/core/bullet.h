@@ -9,7 +9,9 @@ enum BulletType // use lowercase to avoid class name
   untracked_bullet,     
   cannon_ball,
   // add your bullet here:
+  coin,
   crit_bullet,
+  electric_ball,
   inhale_bullet,
   mine,
   missile,

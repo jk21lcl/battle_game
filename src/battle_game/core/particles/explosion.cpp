@@ -9,6 +9,7 @@ Explosion::Explosion(GameCore *game_core,
                      float rotation,
                      uint32_t duration)
     : Particle(game_core, id, position, rotation), duration_(duration) {
+      particle_type_ = explosion;
 }
 
 void Explosion::Render() {
@@ -24,7 +25,7 @@ void Explosion::Update() {
     for (auto &unit : units) {
       auto position = unit.second->GetPosition();
       if (IsInExplosion(position)) {
-        game_core_->PushEventDealDamage(unit.first, id_, 10.0f);
+        game_core_->PushEventDealDamage(unit.first, 0, 10.0f);
       }
     }
     should_damage_ = false;

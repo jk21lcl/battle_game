@@ -65,6 +65,7 @@ Sparky::Sparky(GameCore *game_core, uint32_t id, uint32_t player_id)
           mgr->RegisterModel(turret_vertices, turret_indices);
     }
   }
+  unit_type_ = sparky;
 }
 
 void Sparky::Render() {

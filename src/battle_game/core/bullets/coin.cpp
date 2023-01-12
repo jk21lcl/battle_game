@@ -17,6 +17,7 @@ Coin::Coin(GameCore *core,
       velocity_(velocity),
       life_time_(life_time),
       total_time_(life_time) {
+        bullet_type_ = coin;
 }
 
 void Coin::Render() {
@@ -32,7 +33,7 @@ void Coin::Update() {
     life_time_--;
     position_ += velocity_ * kSecondPerTick;
 
-    if (game_core_->IsBlockedByObstacles(position_)) {
+    if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
       should_die = true;
     }
 
@@ -43,7 +44,7 @@ void Coin::Update() {
       }
       if (unit.second->IsHit(position_)) {
         game_core_->PushEventDealDamage(
-            unit.first, id_,
+            unit.first, unit_id_,
             damage_scale_ * 100.0f * (float)life_time_ / (float)total_time_);
         auto position = unit.second->GetPosition();
         game_core_->PushEventGenerateParticle<particle::Explosion>(position,

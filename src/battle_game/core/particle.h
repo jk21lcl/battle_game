@@ -7,7 +7,9 @@ enum ParticleType // use lowercase to avoid class name
     untracked_particle,
     smoke,
     // add your particle here:
-    bullet_hole
+    bullet_hole,
+    explosion,
+    thunderbolt
 };
 
 class Particle : public Object {
