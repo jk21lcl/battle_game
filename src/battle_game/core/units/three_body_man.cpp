@@ -142,7 +142,7 @@ void ThreeBodyMan::Fire() {
     if (warning_line_time_) {
       warning_line_time_--;
       GenerateBullet<bullet::WarningLine>(shoot_position_, shoot_rotation_,
-                                          0.4f, shoot_args_);
+                                          shoot_damage_scale_, shoot_args_);
     } else {
       if (!shooted_) {
         GenerateBullet<bullet::WaterDrop>(shoot_position_, shoot_rotation_,
