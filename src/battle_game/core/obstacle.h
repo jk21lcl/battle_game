@@ -3,12 +3,13 @@
 #include "glm/glm.hpp"
 
 namespace battle_game {
-enum ObstacleType // use lowercase to avoid class name
+enum ObstacleType  // use lowercase to avoid class name
 {
   untracked_obstacle,
   block,
   // add your obstacle here:
   bramble,
+  brick,
   rebounding_block,
   river,
   safety_declaration

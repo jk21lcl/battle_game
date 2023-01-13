@@ -4,9 +4,9 @@
 #include "cstdint"
 
 namespace battle_game {
-enum BulletType // use lowercase to avoid class name
+enum BulletType  // use lowercase to avoid class name
 {
-  untracked_bullet,     
+  untracked_bullet,
   cannon_ball,
   // add your bullet here:
   coin,
@@ -35,7 +35,10 @@ class Bullet : public Object {
          float damage_scale);
   ~Bullet() override;
   [[nodiscard]] BulletType GetBulletType() const {
-      return bullet_type_;
+    return bullet_type_;
+  }
+  [[nodiscard]] float GetDamage() const {
+    return damage_scale_ * 10.0f;
   }
 
  protected:

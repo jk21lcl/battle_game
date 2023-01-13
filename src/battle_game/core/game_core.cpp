@@ -135,8 +135,9 @@ void GameCore::ProcessEventQueue() {
   }
 }
 
-bool GameCore::IsBlockedByObstacles (glm::vec2 p, 
-          ObjectType src_type, uint32_t src_id) {
+bool GameCore::IsBlockedByObstacles(glm::vec2 p,
+                                    ObjectType src_type,
+                                    uint32_t src_id) {
   if (IsOutOfRange(p)) {
     return true;
   }
@@ -148,16 +149,21 @@ bool GameCore::IsBlockedByObstacles (glm::vec2 p,
   return false;
 }
 
-bool GameCore::HitEffect(ObjectType src_type, uint32_t src_id, 
-                Obstacle* dst)
-{
-  if(dst->GetObstacleType() == river && src_type == bullet_)
+bool GameCore::HitEffect(ObjectType src_type, uint32_t src_id, Obstacle *dst) {
+  if (dst->GetObstacleType() == river && src_type == bullet_)
     return false;
-  if(dst->GetObstacleType() == bramble)
-  {
-    if(src_type == unit_)
+  if (dst->GetObstacleType() == bramble) {
+    if (src_type == unit_)
       PushEventDealDamage(src_id, 0, 0.08f);
     return false;
+  }
+  if (dst->GetObstacleType() == brick && src_type == bullet_) {
+    Bullet *src_bullet = GetBullet(src_id);
+    obstacle::Brick *dst_brick = dynamic_cast<obstacle::Brick *>(dst);
+    dst_brick->SetHealth(dst_brick->GetHealth() -
+                         src_bullet->GetDamage() / dst_brick->GetMaxHealth());
+    if (dst_brick->GetHealth() < 0.01f)
+      PushEventRemoveObstacle(dst_brick->GetId());
   }
   return true;
 }
@@ -242,7 +248,7 @@ void GameCore::PushEventDealDamage(uint32_t dst_unit_id,
       }
     }
     unit = GetUnit(src_unit_id);
-    if(unit != nullptr)
+    if (unit != nullptr)
       unit->AddAttackBuff();
   });
 }
@@ -296,6 +302,7 @@ void GameCore::SetScene() {
   AddObstacle<obstacle::Block>(glm::vec2{-3.0f, 4.0f});
   AddObstacle<obstacle::River>(glm::vec2{3.0f, 0.0f});
   AddObstacle<obstacle::Bramble>(glm::vec2{-3.0f, -4.0f});
+  AddObstacle<obstacle::Brick>(glm::vec2{-3.0f, 0.0f});
   AddObstacle<obstacle::ReboundingBlock>(glm::vec2{-10.0f, -10.0f},
                                          0.78539816339744830961566084581988f);
   AddObstacle<obstacle::ReboundingBlock>(glm::vec2{10.0f, -10.0f},
