@@ -12,7 +12,7 @@ class Brick : public Obstacle {
         glm::vec2 scale = glm::vec2{1.0f, 1.0f});
 
   [[nodiscard]] float GetMaxHealth() const {
-    return 400.0f;
+    return 1200.0f;
   }
 
   [[nodiscard]] float GetHealth() const {
