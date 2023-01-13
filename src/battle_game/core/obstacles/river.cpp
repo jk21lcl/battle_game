@@ -8,7 +8,7 @@ River::River(GameCore *game_core,
              float rotation,
              glm::vec2 scale)
     : Obstacle(game_core, id, position, rotation) {
-      obstacle_type_ = river;
+  obstacle_type_ = river;
 }
 
 bool River::IsBlocked(glm::vec2 p) const {
