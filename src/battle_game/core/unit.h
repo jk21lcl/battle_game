@@ -4,7 +4,7 @@
 
 namespace battle_game {
 
-enum UnitType // use lowercase to avoid class name
+enum UnitType  // use lowercase to avoid class name
 {
   untracked_unit,
   tiny_tank,
@@ -14,6 +14,7 @@ enum UnitType // use lowercase to avoid class name
   double_scatter_tank,
   heal_tank,
   inferno_tank,
+  lm_tank,
   mine_sample_tank,
   missile_tank,
   rage_tank,
@@ -22,11 +23,13 @@ enum UnitType // use lowercase to avoid class name
   round_UFO,
   smoke_bomb_tank,
   sparky,
+  spell_caster,
   square_tank,
   tank_xxy,
   tankK,
   three_body_man,
   triple_shot_tank,
+  udongein,
   whaooooo_tank,
   zibeng_dog
 };
@@ -63,8 +66,9 @@ class Unit : public Object {
     return health_;
   }
 
-  virtual void AddAttackBuff() {}
-  
+  virtual void AddAttackBuff() {
+  }
+
   /*
    * The value of new_health will be clamped to [0, 1]
    * */

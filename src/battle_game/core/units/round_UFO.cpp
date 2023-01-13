@@ -80,7 +80,7 @@ void RoundUFO::Teleport_() {
   if (player) {
     auto &input_data = player->GetInputData();
     auto new_position = input_data.mouse_cursor_position;
-    if (!game_core_->IsBlockedByObstacles(new_position)) {
+    if (!game_core_->IsBlockedByObstacles(new_position, unit_, id_)) {
       game_core_->PushEventMoveUnit(id_, new_position);
     }
   }

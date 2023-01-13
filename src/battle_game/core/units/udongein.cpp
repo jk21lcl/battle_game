@@ -17,6 +17,7 @@ Udongein::Udongein(GameCore *game_core, uint32_t id, uint32_t player_id)
   move_mode_ = Arrow;
   hitbox_radius_ = 0.5f;
   speed_ = 10.0f;
+  unit_type_ = udongein;
 }
 
 void Udongein::Render() {

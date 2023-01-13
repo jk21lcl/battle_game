@@ -12,6 +12,7 @@ enum BulletType  // use lowercase to avoid class name
   coin,
   crit_bullet,
   electric_ball,
+  energy_beam,
   inhale_bullet,
   mine,
   missile,
@@ -19,6 +20,7 @@ enum BulletType  // use lowercase to avoid class name
   rocket,
   smoke_bomb,
   sweaty_soybean,
+  udongein_directional_bullet,
   warning_line,
   water_drop
 };

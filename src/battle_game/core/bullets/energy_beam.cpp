@@ -12,6 +12,7 @@ EnergyBeam::EnergyBeam(GameCore *core,
                        float rotation,
                        float damage_scale)
     : Bullet(core, id, unit_id, player_id, position, rotation, damage_scale) {
+  bullet_type_ = energy_beam;
 }
 EnergyBeam::~EnergyBeam() {
 }
@@ -29,7 +30,7 @@ void EnergyBeam::Render() {
 void EnergyBeam::Update() {
   auto [type, unit, target] = Target();
   if (type == HitResultType::Unit) {
-    game_core_->PushEventDealDamage(unit->GetId(), id_,
+    game_core_->PushEventDealDamage(unit->GetId(), unit_id_,
                                     damage_scale_ * 10.0f * kSecondPerTick);
   }
   if (type != HitResultType::Miss && game_core_->RandomFloat() < 0.2) {
@@ -44,7 +45,7 @@ EnergyBeam::HitResult EnergyBeam::Target() const {
   const auto step_delta = Rotate({0.0f, 0.1f}, rotation_);
   const auto &units = game_core_->GetUnits();
   for (int step = 0; step < 100; step++) {
-    if (game_core_->IsBlockedByObstacles(current)) {
+    if (game_core_->IsBlockedByObstacles(current, bullet_, id_)) {
       return {HitResultType::Obstacle, nullptr, current};
     }
     for (const auto &[id, unit] : units) {

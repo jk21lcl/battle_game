@@ -22,6 +22,7 @@ SpellCaster::SpellCaster(GameCore *game_core, uint32_t id, uint32_t player_id)
          {{0.5f, -0.5f}, {0.0f, 0.0f}, {1.0f, 1.0f, 1.0f, 1.0f}}},
         {0, 1, 2, 1, 2, 3});
   }
+  unit_type_ = spell_caster;
 }
 
 void SpellCaster::Render() {
@@ -166,11 +167,11 @@ void SpellCaster::Move() {
   move_direction_ = std::atan2(offset.y, offset.x) - glm::radians(90.0f);
   offset *= kSecondPerTick * SlowModeScale(speed_) * GetSpeedScale();
   auto new_position = position_;
-  if (!game_core_->IsBlockedByObstacles(new_position +
-                                        glm::vec2{offset.x, 0.0f}))
+  if (!game_core_->IsBlockedByObstacles(
+          new_position + glm::vec2{offset.x, 0.0f}, unit_, id_))
     new_position += glm::vec2{offset.x, 0.0f};
-  if (!game_core_->IsBlockedByObstacles(new_position +
-                                        glm::vec2{0.0f, offset.y}))
+  if (!game_core_->IsBlockedByObstacles(
+          new_position + glm::vec2{0.0f, offset.y}, unit_, id_))
     new_position += glm::vec2{0.0f, offset.y};
   game_core_->PushEventMoveUnit(id_, new_position);
 }

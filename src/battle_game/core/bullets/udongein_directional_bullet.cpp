@@ -14,6 +14,7 @@ UdongeinDirectionalBullet::UdongeinDirectionalBullet(GameCore *core,
                                                      glm::vec2 velocity)
     : Bullet(core, id, unit_id, player_id, position, rotation, damage_scale),
       velocity_(velocity) {
+  bullet_type_ = udongein_directional_bullet;
 }
 
 void UdongeinDirectionalBullet::Render() {
@@ -26,7 +27,7 @@ void UdongeinDirectionalBullet::Render() {
 void UdongeinDirectionalBullet::Update() {
   position_ += velocity_ * kSecondPerTick;
   bool should_die = false;
-  if (game_core_->IsBlockedByObstacles(position_)) {
+  if (game_core_->IsBlockedByObstacles(position_, bullet_, id_)) {
     should_die = true;
   }
 
@@ -36,7 +37,8 @@ void UdongeinDirectionalBullet::Update() {
       continue;
     }
     if (unit.second->IsHit(position_)) {
-      game_core_->PushEventDealDamage(unit.first, id_, damage_scale_ * 2.0f);
+      game_core_->PushEventDealDamage(unit.first, unit_id_,
+                                      damage_scale_ * 2.0f);
       should_die = true;
     }
   }
